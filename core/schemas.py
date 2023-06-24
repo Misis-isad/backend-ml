@@ -21,4 +21,12 @@ class RecordSettings(BaseModel):
 
 class RecordDto(BaseModel):
     video_link: str
-    settings: RecordSettings
+    # settings: RecordSettings
+    start_timecode: str
+    end_timecode: str
+    annotation_length: int
+    article_length: int
+    screenshot_timing: int
+
+    class Config:
+        ...

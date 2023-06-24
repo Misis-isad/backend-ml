@@ -35,21 +35,22 @@ def on_startup():
 
 @app.post("/generate_article")
 async def generate_article(record_data: RecordDto):
-    if record_data.settings.start_timecode == "":
-        record_data.settings.start_timecode = "00:00:00"
-    if record_data.settings.end_timecode == "":
-        record_data.settings.end_timecode = "99:99:99"
+
+    if record_data.start_timecode == "":
+        record_data.start_timecode = "00:00:00"
+    if record_data.end_timecode == "":
+        record_data.end_timecode = "99:99:99"
 
     start_seconds = sum(
-        [60 * int(t) * (3-i) for i, t in enumerate(record_data.settings.start_timecode.split(':'))])
+        [60 * int(t) * (3-i) for i, t in enumerate(record_data.start_timecode.split(':'))])
     end_seconds = sum(
-        [60 * int(t) * (3-i) for i, t in enumerate(record_data.settings.end_timecode.split(':'))])
+        [60 * int(t) * (3-i) for i, t in enumerate(record_data.end_timecode.split(':'))])
 
     whisper_text = download_audio_from_yotube(
         record_data.video_link, start_seconds, end_seconds)
 
     # send request to edge_gpt
-    result = ask(whisper_text)
+    # result = ask(whisper_text)
     # results cames as list of dicts with keys:
     # {
     #     "text": str
@@ -60,14 +61,13 @@ async def generate_article(record_data: RecordDto):
     #     "messages_left": int
     # }
     # we need to combine all texts into one string and return it as html
-    print(result)
     # html = " ".join([r for r in result])
 
-    get_key_frames(5, "data/video/video")
+    print(get_key_frames(5, "data/video/video"))
 
     # html, title для рекорда и ссылку на превью
     return {
-        "html": result,
+        "html": "ok",
         "title": "title",
     }
 
