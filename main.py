@@ -60,13 +60,14 @@ async def generate_article(record_data: RecordDto):
     #     "messages_left": int
     # }
     # we need to combine all texts into one string and return it as html
-    html = " ".join([r["text"] for r in result])
+    print(result)
+    # html = " ".join([r for r in result])
 
     get_key_frames(5, "data/video/video")
 
     # html, title для рекорда и ссылку на превью
     return {
-        "html": html,
+        "html": result,
         "title": "title",
     }
 
