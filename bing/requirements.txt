@@ -1,7 +1,0 @@
-EdgeGPT
-fastapi
-uvicorn
-python-multipart
-opencv-python
-whisper
-yt_dlp
