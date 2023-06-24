@@ -1,0 +1,6 @@
+foo/
+.idea/
+.vscode/
+__pycache__/
+data/
+venv/

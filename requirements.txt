@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+python-multipart
+whisper
+cv2
+yt_dlp
