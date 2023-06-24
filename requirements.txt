@@ -1,6 +1,8 @@
 fastapi
 uvicorn
 python-multipart
-whisper
-cv2
+httpx
+python-dotenv
+openai-whisper
+opencv-python
 yt_dlp

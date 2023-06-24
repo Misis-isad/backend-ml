@@ -1,11 +1,12 @@
 import cv2
 import numpy as np
 
-def Tarakan(freq: int, video_path: str):
+
+def get_key_frames(freq: int, video_path: str):
 
     cap = cv2.VideoCapture(video_path)
-    N = 60 * freq # количество кадров для проверки
-    folder = 'images' # папка для сохранения изображений
+    N = 60 * freq  # количество кадров для проверки
+    folder = 'images'  # папка для сохранения изображений
 
     start = 1
 
@@ -37,5 +38,3 @@ def Tarakan(freq: int, video_path: str):
             count = 0
         prev_frame = frame.copy()
     cap.release()
-
-Tarakan(5, './data/video.mp4')
