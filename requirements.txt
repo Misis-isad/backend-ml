@@ -6,3 +6,4 @@ python-dotenv
 openai-whisper
 opencv-python
 yt_dlp
+markdown
